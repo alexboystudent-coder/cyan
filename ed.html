@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teljes Edzésterv Táblázat</title>
+    <link rel="stylesheet" href="ed.css">
+</head>
+<body>
+
+<div class="main-wrapper">
+    <div class="top-bar">
+        <a href="index.html" class="back-btn">← Menü</a>
+        <div>
+            <h1 class="page-title">📊 Teljes Edzésterv</h1>
+            <div id="week-tracker" class="week-tracker-badge">📅 Betöltés...</div>
+        </div>
+
+        <!-- IDŐZÍTŐ ÉS MENTÉS BLOKK -->
+        <div class="top-actions">
+<div class="timer-box">
+    <span id="timer-display" title="Kattints az idő átállításához">01:30</span>
+    <div class="timer-presets">
+        <button class="preset-btn" data-time="30">+30s</button>
+        <button class="preset-btn" data-time="60">+1m</button>
+    </div>
+    <div class="timer-buttons">
+        <button id="timer-start" title="Indítás / Szünet">▶</button>
+        <button id="timer-reset" title="Visszaállítás">🔄</button>
+    </div>
+</div>            <button id="save-btn" class="save-btn">💾 Mentés</button>
+        </div>
+    </div>
+
+    <!-- A táblázatok maradnak a régiek... -->
+    <div class="table-card">
+        <div class="table-scroll">
+             
+            
+            <!-- 1. NAP -->
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="4" class="day-header">1. nap: 1Front 2Dip 4Handstand</th>
+                    </tr>
+                    <tr class="sub-header">
+                        <th>Gyakorlat</th><th>Set x Rep</th><th>RPE</th><th>Megjegyzés</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="week-row"><td colspan="4">WEEK 1</td></tr>
+                    <tr><td contenteditable="true">Front Touch</td><td contenteditable="true">4Xsec</td><td contenteditable="true">RPE 9</td><td contenteditable="true">8sec 7sec 5sec</td></tr>
+                    <tr><td contenteditable="true">Dip</td><td contenteditable="true">2X8</td><td contenteditable="true">RPE 10</td><td contenteditable="true">52kg 10 10</td></tr>
+                    <tr><td contenteditable="true">Front Lever Pull</td><td contenteditable="true">2X10</td><td contenteditable="true">RPE 9</td><td contenteditable="true">8 8</td></tr>
+                    <tr><td contenteditable="true">Scapula Raises</td><td contenteditable="true">2X5</td><td contenteditable="true">RPE 9</td><td contenteditable="true">99kg 5 5</td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">Dip bottom</td><td contenteditable="true">2X 10</td><td contenteditable="true">RPE 9</td><td contenteditable="true">27kg 10 10</td></tr>
+                    <tr><td contenteditable="true">Handstand Hold</td><td contenteditable="true">4Xsec</td><td contenteditable="true">RPE 10</td><td contenteditable="true">9s 6s 6s 6s</td></tr>
+
+                    <tr class="week-row"><td colspan="4">WEEK 2</td></tr>
+                    <tr><td contenteditable="true">Front Touch</td><td contenteditable="true">4xsec</td><td contenteditable="true">RPE 7</td><td contenteditable="true">6s 7s 7s 6s</td></tr>
+                    <tr><td contenteditable="true">Dip</td><td contenteditable="true">3X5</td><td contenteditable="true">RPE 7</td><td contenteditable="true">65kg 5 5</td></tr>
+                    <tr><td contenteditable="true">Front Lever Pull</td><td contenteditable="true">3X6</td><td contenteditable="true">RPE 8</td><td contenteditable="true">5 5</td></tr>
+                    <tr><td contenteditable="true">Scapula Raises</td><td contenteditable="true">2X6</td><td contenteditable="true">RPE 8</td><td contenteditable="true">99kg 5 5</td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">Dip bottom</td><td contenteditable="true">2X6</td><td contenteditable="true">RPE 8</td><td contenteditable="true">30kg 6 5</td></tr>
+                    <tr><td contenteditable="true">Handstand Hold</td><td contenteditable="true">4xsec</td><td contenteditable="true">RPE 10</td><td contenteditable="true">9s 8s 5s 5s</td></tr>
+
+                    <tr class="week-row"><td colspan="4">WEEK 3</td></tr>
+                    <tr><td contenteditable="true">Front Touch</td><td contenteditable="true">4xsec</td><td contenteditable="true">RPE 9</td><td contenteditable="true">8s 9s 8s 7s</td></tr>
+                    <tr><td contenteditable="true">Dip</td><td contenteditable="true">3x3</td><td contenteditable="true">RPE 10</td><td contenteditable="true">80kg 3 3</td></tr>
+                    <tr><td contenteditable="true">Front Lever Pull</td><td contenteditable="true">3x5</td><td contenteditable="true">RPE 9</td><td contenteditable="true">5 5</td></tr>
+                    <tr><td contenteditable="true">Scapula Raises</td><td contenteditable="true">2X5</td><td contenteditable="true">RPE 9</td><td contenteditable="true">99kg 5 5</td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">Dip bottom</td><td contenteditable="true">2X4</td><td contenteditable="true">RPE 10</td><td contenteditable="true">52kg 4 4</td></tr>
+                    <tr><td contenteditable="true">Handstand Hold</td><td contenteditable="true">4sec</td><td contenteditable="true">RPE 10</td><td contenteditable="true">9s 7s 8s 9s</td></tr>
+
+                    <tr class="week-row"><td colspan="4">WEEK 4</td></tr>
+                    <tr><td contenteditable="true">Front Touch</td><td contenteditable="true">4Xsec</td><td contenteditable="true">RPE 7</td><td contenteditable="true"></td></tr>
+                    <tr><td contenteditable="true">Dip</td><td contenteditable="true">2X8</td><td contenteditable="true">RPE 7</td><td contenteditable="true"></td></tr>
+                    <tr><td contenteditable="true">Front Lever Pull</td><td contenteditable="true">2X10</td><td contenteditable="true">RPE 7</td><td contenteditable="true"></td></tr>
+                    <tr><td contenteditable="true">Scapula Raises</td><td contenteditable="true">2X5</td><td contenteditable="true">RPE 6</td><td contenteditable="true"></td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">Dip bottom</td><td contenteditable="true">2X 10</td><td contenteditable="true">RPE 7</td><td contenteditable="true"></td></tr>
+                    <tr><td contenteditable="true">Handstand Hold</td><td contenteditable="true">4Xsec</td><td contenteditable="true">RPE 10</td><td contenteditable="true"></td></tr>
+                </tbody>
+            </table>
+
+            <!-- PIHENŐ NAP 1 -->
+            <table class="rest-table">
+                <tr><th class="rest-header-block">REST NAP</th></tr>
+            </table>
+
+            <!-- 2. NAP -->
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="4" class="day-header">2. nap: 1Handstand 2Front</th>
+                    </tr>
+                    <tr class="sub-header">
+                        <th>Gyakorlat</th><th>Set x Rep</th><th>RPE</th><th>Megjegyzés</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="week-row"><td colspan="4">WEEK 1</td></tr>
+                    <tr><td contenteditable="true">Handstand Hold</td><td contenteditable="true">6Xsec</td><td contenteditable="true">RPE 10</td><td contenteditable="true">8s 6s 8s 7s 7s 5s</td></tr>
+                    <tr><td contenteditable="true">Pike Pushup</td><td contenteditable="true">3X10</td><td contenteditable="true">RPE 10</td><td contenteditable="true">11 10 8</td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">Pike 1/2</td><td contenteditable="true">2X12</td><td contenteditable="true">RPE 9</td><td contenteditable="true">0kg 12 11</td></tr>
+                    <tr><td contenteditable="true">Front Touch Max</td><td contenteditable="true">3Xsec</td><td contenteditable="true">RPE 9</td><td contenteditable="true">8sec 7sec 5sec</td></tr>
+                    <tr><td contenteditable="true">Font Lever Pull</td><td contenteditable="true">2X10</td><td contenteditable="true">RPE 9</td><td contenteditable="true">0kg 10 10</td></tr>
+                    <tr><td class="highlight-red" contenteditable="true">Trap Edzés</td><td contenteditable="true">2x12</td><td contenteditable="true">RPE 10</td><td contenteditable="true">84kg 14 12</td></tr>
+                    <tr><td class="highlight-red" contenteditable="true">Skull crusher</td><td contenteditable="true">2x12</td><td contenteditable="true">RPE 10</td><td contenteditable="true"></td></tr>
+
+                    <tr class="week-row"><td colspan="4">WEEK 2</td></tr>
+                    <tr><td contenteditable="true">Handstand Hold</td><td contenteditable="true">4Xsec</td><td contenteditable="true">RPE 10</td><td contenteditable="true">9s 6s 8s 5s</td></tr>
+                    <tr><td contenteditable="true">Pike Pushup</td><td contenteditable="true">3X6</td><td contenteditable="true">RPE 8</td><td contenteditable="true">5 4 4</td></tr>
+                    <tr><td contenteditable="true">Front Touch Max</td><td contenteditable="true">2Xsec</td><td contenteditable="true">RPE 7</td><td contenteditable="true">11s 8s</td></tr>
+                    <tr><td contenteditable="true">Font Lever Pull</td><td contenteditable="true">3X6</td><td contenteditable="true">RPE 7</td><td contenteditable="true">6 5 5</td></tr>
+                    <tr><td class="highlight-red" contenteditable="true">Trap Edzés</td><td contenteditable="true">2x12</td><td contenteditable="true">RPE 10</td><td contenteditable="true">84kg 14 12</td></tr>
+                    <tr><td class="highlight-red" contenteditable="true">chest isolation press</td><td contenteditable="true">2x12</td><td contenteditable="true">RPE 10</td><td contenteditable="true"></td></tr>
+
+                    <tr class="week-row"><td colspan="4">WEEK 3</td></tr>
+                    <tr><td contenteditable="true">Handstand Hold</td><td contenteditable="true">4Xsec</td><td contenteditable="true">RPE 10</td><td contenteditable="true">7s 6s 7s 4s</td></tr>
+                    <tr><td contenteditable="true">Pike Pushup</td><td contenteditable="true">3X4</td><td contenteditable="true">RPE 10</td><td contenteditable="true">4 4 4</td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">Pike 1/2</td><td contenteditable="true">2X5</td><td contenteditable="true">RPE 9</td><td contenteditable="true">5 5 3</td></tr>
+                    <tr><td contenteditable="true">Front Touch Max</td><td contenteditable="true">2Xsec</td><td contenteditable="true">RPE 9</td><td contenteditable="true">6s 4s</td></tr>
+                    <tr><td contenteditable="true">Font Lever Pull</td><td contenteditable="true">2X5</td><td contenteditable="true">RPE 9</td><td contenteditable="true">5 5</td></tr>
+                    <tr><td class="highlight-red" contenteditable="true">Trap Edzés</td><td contenteditable="true">2x12</td><td contenteditable="true">RPE 10</td><td contenteditable="true">84kg 14 12</td></tr>
+
+                    <tr class="week-row"><td colspan="4">WEEK 4</td></tr>
+                    <tr><td contenteditable="true">Handstand Hold</td><td contenteditable="true">4Xsec</td><td contenteditable="true">RPE 10</td><td contenteditable="true">8s 7s 6s 5s</td></tr>
+                    <tr><td contenteditable="true">Pike Pushup</td><td contenteditable="true">3X7</td><td contenteditable="true">RPE 7</td><td contenteditable="true">7 7 7</td></tr>
+                    <tr><td contenteditable="true">Front Touch Max</td><td contenteditable="true">2Xsec</td><td contenteditable="true">RPE 6</td><td contenteditable="true">20s 20s</td></tr>
+                    <tr><td contenteditable="true">Font Lever Pull</td><td contenteditable="true">3X6</td><td contenteditable="true">RPE 6</td><td contenteditable="true">10 10 10</td></tr>
+                    <tr><td class="highlight-red" contenteditable="true">Trap Edzés</td><td contenteditable="true">2x12</td><td contenteditable="true">RPE 10</td><td contenteditable="true">84kg 14 12</td></tr>
+                    <tr><td class="highlight-red" contenteditable="true">chest isolation press</td><td contenteditable="true">2x12</td><td contenteditable="true">RPE 10</td><td contenteditable="true"></td></tr>
+                </tbody>
+            </table>
+
+            <!-- 3. NAP -->
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="4" class="day-header">3. nap: 2Pullup 3Handstand 3Dip</th>
+                    </tr>
+                    <tr class="sub-header">
+                        <th>Gyakorlat</th><th>Set x Rep</th><th>RPE</th><th>Megjegyzés</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="week-row"><td colspan="4">WEEK 1</td></tr>
+                    <tr><td contenteditable="true">Pullup</td><td contenteditable="true">2X8</td><td contenteditable="true">RPE 10</td><td contenteditable="true">35kg 10 8</td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">1/2 pullup</td><td contenteditable="true">2x12</td><td contenteditable="true">RPE 9</td><td contenteditable="true">15kg 8 8</td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">Dip bottom</td><td contenteditable="true">2X 8</td><td contenteditable="true">RPE 9</td><td contenteditable="true">27kg 10 10</td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">Pin Dip</td><td contenteditable="true">2X10</td><td contenteditable="true">RPE 10</td><td contenteditable="true">52kg 10 10</td></tr>
+                    <tr><td contenteditable="true">Pike Pushup</td><td contenteditable="true">2X10</td><td contenteditable="true">RPE 10</td><td contenteditable="true">0kg 7 6</td></tr>
+                    <tr><td class="highlight-red" contenteditable="true">biceps curls</td><td contenteditable="true">2x12</td><td contenteditable="true">RPE 10</td><td contenteditable="true">22kg 6 6 , 7 6</td></tr>
+                    <tr><td class="highlight-red" contenteditable="true">chest isolation press</td><td contenteditable="true">2x12</td><td contenteditable="true">RPE 10</td><td contenteditable="true"></td></tr>
+
+                    <tr class="week-row"><td colspan="4">WEEK 2</td></tr>
+                    <tr><td contenteditable="true">Pullup</td><td contenteditable="true">3X5</td><td contenteditable="true">RPE 8</td><td contenteditable="true">44kg 5 5 4</td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">1/2 pullup</td><td contenteditable="true">3X6</td><td contenteditable="true">RPE 8</td><td contenteditable="true"></td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">Dip bottom</td><td contenteditable="true">3X6</td><td contenteditable="true">RPE 7</td><td contenteditable="true"></td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">Pin Dip</td><td contenteditable="true">3X7</td><td contenteditable="true">RPE 8</td><td contenteditable="true"></td></tr>
+                    <tr><td contenteditable="true">Pike Pushup</td><td contenteditable="true">2x6</td><td contenteditable="true">RPE 10</td><td contenteditable="true">34kg 12 12</td></tr>
+                    <tr><td class="highlight-red" contenteditable="true">biceps curls</td><td contenteditable="true">2x12</td><td contenteditable="true">RPE 10</td><td contenteditable="true">22kg 6 6 , 7 6</td></tr>
+
+                    <tr class="week-row"><td colspan="4">WEEK 3</td></tr>
+                    <tr><td contenteditable="true">Pullup</td><td contenteditable="true">3x3</td><td contenteditable="true">RPE 10</td><td contenteditable="true">52kg 3 3 3</td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">1/2 pullup</td><td contenteditable="true">2X4</td><td contenteditable="true">RPE 10</td><td contenteditable="true">41kg 3</td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">Dip bottom</td><td contenteditable="true">1X5</td><td contenteditable="true">RPE 9</td><td contenteditable="true"></td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">Pin Dip</td><td contenteditable="true">3x4</td><td contenteditable="true">RPE 10</td><td contenteditable="true"></td></tr>
+                    <tr><td contenteditable="true">Pike Pushup</td><td contenteditable="true">3x4</td><td contenteditable="true">RPE 10</td><td contenteditable="true"></td></tr>
+                    <tr><td class="highlight-red" contenteditable="true">biceps curls</td><td contenteditable="true">2x12</td><td contenteditable="true">RPE 10</td><td contenteditable="true">22kg 6 6 , 7 6</td></tr>
+
+                    <tr class="week-row"><td colspan="4">WEEK 4</td></tr>
+                    <tr><td contenteditable="true">Pullup</td><td contenteditable="true">2X8</td><td contenteditable="true">RPE 7</td><td contenteditable="true"></td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">1/2 pullup</td><td contenteditable="true">2x12</td><td contenteditable="true">RPE 7</td><td contenteditable="true"></td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">Dip bottom</td><td contenteditable="true">2X 8</td><td contenteditable="true">RPE 6</td><td contenteditable="true"></td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">Pin Dip</td><td contenteditable="true">2X10</td><td contenteditable="true">RPE 7</td><td contenteditable="true"></td></tr>
+                    <tr><td contenteditable="true">Pike Pushup</td><td contenteditable="true">2X10</td><td contenteditable="true">RPE 10</td><td contenteditable="true"></td></tr>
+                    <tr><td class="highlight-red" contenteditable="true">biceps curls</td><td contenteditable="true">2x12</td><td contenteditable="true">RPE 10</td><td contenteditable="true">22kg 6 6 , 7 6</td></tr>
+                </tbody>
+            </table>
+
+            <!-- PIHENŐ NAP 2 -->
+            <table class="rest-table">
+                <tr><th class="rest-header-block">REST NAP</th></tr>
+            </table>
+
+            <!-- 4. NAP -->
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="4" class="day-header">4. nap: 1Dip 3Pullup</th>
+                    </tr>
+                    <tr class="sub-header">
+                        <th>Gyakorlat</th><th>Set x Rep</th><th>RPE</th><th>Megjegyzés</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="week-row"><td colspan="4">WEEK 1</td></tr>
+                    <tr><td contenteditable="true">Dip</td><td contenteditable="true">1x3</td><td contenteditable="true">RPE 8</td><td contenteditable="true">74kg 1 1 1</td></tr>
+                    <tr><td contenteditable="true">Dip</td><td contenteditable="true">2x8</td><td contenteditable="true">RPE 10</td><td contenteditable="true">59,5kg 8 8</td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">1/2 dip</td><td contenteditable="true">2X9</td><td contenteditable="true">RPE 9</td><td contenteditable="true">31 kg 9 10</td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">1/2 pullup</td><td contenteditable="true">2X10</td><td contenteditable="true">RPE 10</td><td contenteditable="true">31kg 10 9</td></tr>
+                    <tr><td contenteditable="true">Pullup Hold</td><td contenteditable="true">1Xs</td><td contenteditable="true">RPE 9</td><td contenteditable="true">50kg s</td></tr>
+                    <tr><td class="highlight-red" contenteditable="true">Leg Raises</td><td contenteditable="true">2x10</td><td contenteditable="true">RPE 10</td><td contenteditable="true"></td></tr>
+
+                    <tr class="week-row"><td colspan="4">WEEK 2</td></tr>
+                    <tr><td contenteditable="true">Dip</td><td contenteditable="true">1x1</td><td contenteditable="true">RPE 8</td><td contenteditable="true"></td></tr>
+                    <tr><td contenteditable="true">Dip</td><td contenteditable="true">3X5</td><td contenteditable="true">RPE 7</td><td contenteditable="true"></td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">1/2 dip</td><td contenteditable="true">2X6</td><td contenteditable="true">RPE 8</td><td contenteditable="true"></td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">1/2 pullup</td><td contenteditable="true">4X6</td><td contenteditable="true">RPE 8</td><td contenteditable="true"></td></tr>
+                    <tr><td contenteditable="true">Pullup Hold</td><td contenteditable="true">2xs</td><td contenteditable="true">RPE 8</td><td contenteditable="true"></td></tr>
+                    <tr><td class="highlight-red" contenteditable="true">Leg Raises</td><td contenteditable="true">2x10</td><td contenteditable="true">RPE 10</td><td contenteditable="true"></td></tr>
+
+                    <tr class="week-row"><td colspan="4">WEEK 3</td></tr>
+                    <tr><td contenteditable="true">Dip</td><td contenteditable="true">3x2-1</td><td contenteditable="true">RPE 8</td><td contenteditable="true"></td></tr>
+                    <tr><td contenteditable="true">Dip backoff</td><td contenteditable="true">1X 15</td><td contenteditable="true">RPE 5</td><td contenteditable="true"></td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">1/2 dip</td><td contenteditable="true">2X4</td><td contenteditable="true">RPE 9</td><td contenteditable="true"></td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">1/2 pullup</td><td contenteditable="true">3X4</td><td contenteditable="true">RPE 10</td><td contenteditable="true"></td></tr>
+                    <tr><td contenteditable="true">Pullup Hold</td><td contenteditable="true">1Xs</td><td contenteditable="true">RPE 10</td><td contenteditable="true"></td></tr>
+                    <tr><td class="highlight-red" contenteditable="true">Leg Raises</td><td contenteditable="true">2x10</td><td contenteditable="true">RPE 10</td><td contenteditable="true"></td></tr>
+
+                    <tr class="week-row"><td colspan="4">WEEK 4</td></tr>
+                    <tr><td contenteditable="true">Dip</td><td contenteditable="true">3x1</td><td contenteditable="true">RPE 7</td><td contenteditable="true"></td></tr>
+                    <tr><td contenteditable="true">Dip</td><td contenteditable="true">2x8</td><td contenteditable="true">RPE 7</td><td contenteditable="true"></td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">1/2 dip</td><td contenteditable="true">2X9</td><td contenteditable="true">RPE 7</td><td contenteditable="true"></td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">1/2 pullup</td><td contenteditable="true">2X10</td><td contenteditable="true">RPE 6</td><td contenteditable="true"></td></tr>
+                    <tr><td contenteditable="true">Pullup Hold</td><td contenteditable="true">1Xs</td><td contenteditable="true">RPE 7</td><td contenteditable="true"></td></tr>
+                    <tr><td class="highlight-red" contenteditable="true">Leg Raises</td><td contenteditable="true">2x10</td><td contenteditable="true">RPE 10</td><td contenteditable="true"></td></tr>
+                </tbody>
+            </table>
+
+            <!-- 5. NAP -->
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="4" class="day-header">5. nap: 1Pullup 2Handstand</th>
+                    </tr>
+                    <tr class="sub-header">
+                        <th>Gyakorlat</th><th>Set x Rep</th><th>RPE</th><th>Megjegyzés</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="week-row"><td colspan="4">WEEK 1</td></tr>
+                    <tr><td contenteditable="true">Pullup</td><td contenteditable="true">1x3</td><td contenteditable="true">RPE 8</td><td contenteditable="true">52kg 1 1 1</td></tr>
+                    <tr><td contenteditable="true">Pullup</td><td contenteditable="true">2x8</td><td contenteditable="true">RPE 10</td><td contenteditable="true">33kg 8 8</td></tr>
+                    <tr><td contenteditable="true">Handstand Hold</td><td contenteditable="true">4Xsec</td><td contenteditable="true">RPE 10</td><td contenteditable="true"></td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">1/2 pullup</td><td contenteditable="true">2x12</td><td contenteditable="true">RPE 9</td><td contenteditable="true">11kg 13 12</td></tr>
+                    <tr><td contenteditable="true">Pike Pushup</td><td contenteditable="true">2X10</td><td contenteditable="true">RPE 10</td><td contenteditable="true">0kg 11 10 8</td></tr>
+                    <tr><td class="highlight-red" contenteditable="true">Trap Edzés</td><td contenteditable="true">2x12</td><td contenteditable="true">RPE 10</td><td contenteditable="true">84kg 14 12</td></tr>
+
+                    <tr class="week-row"><td colspan="4">WEEK 2</td></tr>
+                    <tr><td contenteditable="true">Pullup</td><td contenteditable="true">1x1</td><td contenteditable="true">RPE 8</td><td contenteditable="true"></td></tr>
+                    <tr><td contenteditable="true">Pullup</td><td contenteditable="true">3x5</td><td contenteditable="true">RPE 8</td><td contenteditable="true"></td></tr>
+                    <tr><td contenteditable="true">Handstand Hold</td><td contenteditable="true">4Xsec</td><td contenteditable="true">RPE 10</td><td contenteditable="true"></td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">1/2 pullup</td><td contenteditable="true">2X6</td><td contenteditable="true">RPE 7</td><td contenteditable="true"></td></tr>
+                    <tr><td contenteditable="true">Pike Pushup</td><td contenteditable="true">2x6</td><td contenteditable="true">RPE 8</td><td contenteditable="true"></td></tr>
+                    <tr><td class="highlight-red" contenteditable="true">Trap Edzés</td><td contenteditable="true">2x12</td><td contenteditable="true">RPE 10</td><td contenteditable="true">84kg 14 12</td></tr>
+
+                    <tr class="week-row"><td colspan="4">WEEK 3</td></tr>
+                    <tr><td contenteditable="true">Pullup</td><td contenteditable="true">3x2-1</td><td contenteditable="true">RPE 8</td><td contenteditable="true"></td></tr>
+                    <tr><td contenteditable="true">Pullup backoff</td><td contenteditable="true">1X15</td><td contenteditable="true">RPE 6</td><td contenteditable="true"></td></tr>
+                    <tr><td contenteditable="true">Handstand Hold</td><td contenteditable="true">4Xsec</td><td contenteditable="true">RPE 10</td><td contenteditable="true"></td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">1/2 pullup</td><td contenteditable="true">2x4</td><td contenteditable="true">RPE 9</td><td contenteditable="true"></td></tr>
+                    <tr><td contenteditable="true">Pike Pushup</td><td contenteditable="true">2X4</td><td contenteditable="true">RPE 10</td><td contenteditable="true"></td></tr>
+                    <tr><td class="highlight-red" contenteditable="true">Trap Edzés</td><td contenteditable="true">2x12</td><td contenteditable="true">RPE 10</td><td contenteditable="true">84kg 14 12</td></tr>
+
+                    <tr class="week-row"><td colspan="4">WEEK 4</td></tr>
+                    <tr><td contenteditable="true">Pullup</td><td contenteditable="true">1x3 / 2x8</td><td contenteditable="true">RPE 7</td><td contenteditable="true"></td></tr>
+                    <tr><td contenteditable="true">Handstand Hold</td><td contenteditable="true">4Xsec</td><td contenteditable="true">RPE 10</td><td contenteditable="true"></td></tr>
+                    <tr><td class="highlight-orange" contenteditable="true">1/2 pullup</td><td contenteditable="true">2x12</td><td contenteditable="true">RPE 6</td><td contenteditable="true"></td></tr>
+                    <tr><td contenteditable="true">Pike Pushup</td><td contenteditable="true">2X10</td><td contenteditable="true">RPE 7</td><td contenteditable="true"></td></tr>
+                    <tr><td class="highlight-red" contenteditable="true">Trap Edzés</td><td contenteditable="true">2x12</td><td contenteditable="true">RPE 10</td><td contenteditable="true">84kg 14 12</td></tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<script src="ed.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Napi Teendők</title>
+    <meta name="theme-color" content="#0b0f19">
+    <link rel="stylesheet" href="c1.css">
+</head>
+<body>
+
+<div class="main-wrapper">
+    <!-- Vissza gomb a 3D menübe -->
+    <div class="top-bar">
+        <a href="index.html" class="back-btn">← Menü</a>
+        <div class="streak-counter" id="streak-counter">🌱 Kezdd el!</div>
+    </div>
+
+    <!-- Dátum léptető -->
+    <div class="calendar-nav">
+        <button class="nav-btn" onclick="changeDay(-1)">« Előző</button>
+        <span class="date-label" id="current-date-label">Betöltés...</span>
+        <button class="nav-btn" onclick="changeDay(1)">Következő »</button>
+    </div>
+
+    <!-- Napi állandó teendők -->
+    <div class="cloud-card" id="scheduled-cloud">
+        <h2>✨ Napi állandó teendők</h2>
+        <ul class="task-list" id="task-list-container"></ul>
+    </div>
+
+</div>
+
+<!-- Fókusz Időzítő Modal -->
+<div id="focus-modal" class="modal-overlay">
+    <div class="mini-modal-card">
+        <h3 id="focus-task-name">Fókusz</h3>
+        
+        <div id="timer-setup-zone">
+            <div class="slider-container">
+                <input type="range" id="timer-slider" class="custom-slider" min="1" max="90" value="25" oninput="updateSliderDisplay(this.value)">
+                <div class="slider-duration"><span id="slider-minutes">25</span> perc</div>
+            </div>
+        </div>
+
+        <div id="timer-countdown-zone" style="display: none;">
+            <div class="timer-display" id="timer-display">25:00</div>
+        </div>
+
+        <div class="modal-buttons">
+            <button class="nav-btn" id="timer-control" onclick="toggleTimer()">Indítás</button>
+            <button class="nav-btn cancel" onclick="closeFocus()">Mégse</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="j2.js"></script>
+</body>
+</html>

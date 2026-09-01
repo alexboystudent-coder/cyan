@@ -1,0 +1,366 @@
+:root {
+    --bg-color: #030712;
+    --card-bg: rgba(15, 23, 42, 0.65);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-amber: #f59e0b;
+    --accent-neon: #00ff87;
+    --accent-cyan: #38bdf8;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --task-completed-bg: rgba(15, 23, 42, 0.4);
+    --success-color: #00ff87;
+    --danger-color: #ef4444;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    padding: 30px 15px;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* --- ELMOSOTT NEON HÁTTÉR-EFFEKTEK (BLUR) --- */
+body::before {
+    content: '';
+    position: fixed;
+    top: -10%;
+    left: -10%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+    filter: blur(80px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    bottom: -10%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 255, 135, 0.15) 0%, rgba(56, 189, 248, 0.12) 70%);
+    filter: blur(100px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.main-wrapper {
+    width: 100%;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* FELSŐ BÁR */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back-btn {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    color: var(--accent-amber);
+    border-color: var(--accent-amber);
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+    transform: translateX(-3px);
+}
+
+.streak-counter {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: var(--accent-amber);
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.15);
+}
+
+/* DÁTUM / NAPTÁR NAVIGÁCIÓ */
+.calendar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 14px 18px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+}
+
+.nav-btn {
+    background: rgba(30, 41, 59, 0.7);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 8px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+}
+
+.date-label {
+    font-weight: 800;
+    font-size: 1rem;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    background: linear-gradient(135deg, var(--accent-amber) 0%, var(--accent-neon) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* FŐ KÁRTYA (CLOUD CARD) */
+.cloud-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 22px;
+    border-radius: 18px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cloud-card:hover {
+    border-color: rgba(245, 158, 11, 0.4);
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.15);
+}
+
+.cloud-card.fully-completed {
+    border-color: var(--success-color);
+    box-shadow: 0 0 25px rgba(0, 255, 135, 0.25);
+}
+
+.cloud-card h2 {
+    margin-bottom: 18px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--text-primary);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* TEENDŐ LISTA ÉS ELEMEK */
+.task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.task-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px 16px;
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.task-item:hover {
+    border-color: var(--accent-cyan);
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+}
+
+.task-row-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.task-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.task-item.completed {
+    background: var(--task-completed-bg);
+    border-color: rgba(0, 255, 135, 0.2);
+    opacity: 0.75;
+}
+
+.task-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+}
+
+/* GOMBOK A TASKON BELÜL */
+.checkbox-btn {
+    background: rgba(15, 23, 42, 0.8);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.checkbox-btn:hover {
+    border-color: var(--accent-neon);
+    color: var(--accent-neon);
+    box-shadow: 0 0 10px rgba(0, 255, 135, 0.3);
+}
+
+.task-item.completed .checkbox-btn {
+    background: var(--success-color);
+    color: #030712;
+    border-color: var(--success-color);
+    font-weight: 900;
+    box-shadow: 0 0 12px rgba(0, 255, 135, 0.4);
+}
+
+.focus-btn {
+    background: rgba(15, 23, 42, 0.8);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    padding: 7px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.focus-btn:hover {
+    color: var(--accent-amber);
+    border-color: var(--accent-amber);
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+}
+
+.plan-box {
+    display: none;
+    background: rgba(15, 23, 42, 0.9);
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    border-left: 3px solid var(--accent-amber);
+    color: var(--text-secondary);
+}
+
+/* MODAL STÍLUSOK (ELMOSOTT CYBER LOOK) */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(3, 7, 18, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+.mini-modal-card {
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 26px;
+    border-radius: 20px;
+    width: 88%;
+    max-width: 340px;
+    text-align: center;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.8);
+}
+
+.custom-slider {
+    width: 100%;
+    margin: 18px 0;
+    accent-color: var(--accent-neon);
+    cursor: pointer;
+}
+
+.slider-duration {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--accent-cyan);
+}
+
+.timer-display {
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin: 15px 0;
+    color: var(--accent-neon);
+    text-shadow: 0 0 20px rgba(0, 255, 135, 0.4);
+    font-family: monospace;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.modal-buttons .nav-btn {
+    flex: 1;
+    padding: 10px;
+    font-size: 0.9rem;
+}
+
+#timer-control {
+    background: linear-gradient(135deg, var(--accent-amber) 0%, var(--accent-neon) 100%);
+    color: #030712;
+    border: none;
+    font-weight: 900;
+    box-shadow: 0 0 15px rgba(0, 255, 135, 0.3);
+}
+
+#timer-control:hover {
+    box-shadow: 0 0 22px rgba(0, 255, 135, 0.6);
+    transform: translateY(-1px);
+}

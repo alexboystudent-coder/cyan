@@ -1,0 +1,346 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: #030712;
+    color: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Elmosott neon háttér-effektek (Glassmorphism) */
+.bg-blur-1 {
+    position: fixed;
+    top: -10%;
+    left: -10%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
+    filter: blur(80px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.bg-blur-2 {
+    position: fixed;
+    bottom: -10%;
+    right: -10%;
+    width: 550px;
+    height: 550px;
+    background: radial-gradient(circle, rgba(0, 255, 135, 0.2) 0%, rgba(96, 239, 255, 0.15) 70%);
+    filter: blur(100px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.menu-container {
+    max-width: 650px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* VISSZA GOMB STÍLUSA */
+.back-btn {
+    position: absolute;
+    top: -55px;
+    left: 0;
+    color: #94a3b8;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    color: #f59e0b;
+    border-color: #f59e0b;
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+    transform: translateX(-3px);
+}
+
+.menu-header {
+    margin-bottom: 20px;
+}
+
+.glow-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, #f59e0b 0%, #00ff87 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 25px rgba(245, 158, 11, 0.4);
+}
+
+.subtitle {
+    color: #94a3b8;
+    font-size: 1rem;
+    margin-top: 8px;
+}
+
+/* FELSŐ AKCIÓ GOMBOK */
+.top-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+.calc-btn {
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid #38bdf8;
+    color: #38bdf8;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 8px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+.calc-btn:hover {
+    background: #38bdf8;
+    color: #030712;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+}
+
+/* PR LISTA ÉS KÁRTYÁK */
+.pr-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 25px;
+}
+
+.pr-card {
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pr-card:hover {
+    border-color: #f59e0b;
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.25);
+    transform: translateY(-2px);
+}
+
+.pr-info {
+    text-align: left;
+}
+
+.pr-info h3 {
+    font-size: 1.1rem;
+    color: #f8fafc;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.pr-date {
+    font-size: 0.75rem;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.pr-value-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pr-input {
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    color: #00ff87;
+    font-weight: 800;
+    font-size: 1.25rem;
+    padding: 8px 10px;
+    border-radius: 10px;
+    width: 85px;
+    text-align: center;
+    outline: none;
+    transition: 0.3s;
+}
+
+.pr-input:focus {
+    border-color: #00ff87;
+    box-shadow: 0 0 15px rgba(0, 255, 135, 0.5);
+    background: rgba(15, 23, 42, 0.9);
+}
+
+.unit {
+    color: #94a3b8;
+    font-weight: 700;
+    font-size: 0.9rem;
+    min-width: 25px;
+    text-align: left;
+}
+
+/* TÖRLEÉS (KUKA) GOMB */
+.delete-btn {
+    background: transparent;
+    border: none;
+    color: #ef4444;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+    transition: 0.2s;
+    opacity: 0.6;
+}
+
+.delete-btn:hover {
+    opacity: 1;
+    background: rgba(239, 68, 68, 0.15);
+    transform: scale(1.1);
+}
+
+/* ÚJ GYAKORLAT GOMB */
+.add-pr-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #f59e0b 0%, #00ff87 100%);
+    color: #030712;
+    font-weight: 900;
+    font-size: 1rem;
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+}
+
+.add-pr-btn:hover {
+    box-shadow: 0 0 30px rgba(0, 255, 135, 0.6);
+    transform: translateY(-3px) scale(1.01);
+}
+
+/* 1RM MODAL STÍLUSOK */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+.mini-modal-card {
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 20px;
+    padding: 25px;
+    width: 90%;
+    max-width: 350px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+}
+
+.mini-modal-card h2 {
+    color: #38bdf8;
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+}
+
+.modal-desc {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+}
+
+.modal-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    color: #f8fafc;
+}
+
+.input-group input {
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #00ff87;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 6px 10px;
+    border-radius: 8px;
+    width: 80px;
+    text-align: center;
+    outline: none;
+}
+
+.calc-result {
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px dashed #38bdf8;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.calc-result span {
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.calc-result strong {
+    font-size: 1.6rem;
+    color: #00ff87;
+}
+
+.close-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: #f8fafc;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 100%;
+    transition: 0.2s;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Személyes Rekordok - CyberWorkout</title>
+    <link rel="stylesheet" href="pr.css">
+</head>
+<body>
+
+<div class="bg-blur-1"></div>
+<div class="bg-blur-2"></div>
+
+<div class="menu-container">
+    <a href="index.html" class="back-btn">← Főmenü</a>
+
+    <header class="menu-header">
+        <h1 class="glow-title">🏆 SZEMÉLYES REKORDOK</h1>
+        <p class="subtitle">Vezesd a legnagyobb csúcsaidat (PR / 1RM)</p>
+    </header>
+
+    <!-- Felső Gombok -->
+    <div class="top-actions">
+        <button id="open-calc-btn" class="calc-btn">🧮 1RM Kalkulátor</button>
+    </div>
+
+    <div class="pr-container" id="pr-list">
+        <!-- JS fogja betölteni dinamikusan -->
+    </div>
+
+    <button id="add-new-pr" class="add-pr-btn">➕ Új Gyakorlat Hozzáadása</button>
+</div>
+
+<!-- 1RM KALKULÁTOR MODAL -->
+<div id="calc-modal" class="modal-overlay">
+    <div class="mini-modal-card">
+        <h2>🧮 1RM KALKULÁTOR</h2>
+        <p class="modal-desc">Számold ki az 1 ismétléses maximumodat!</p>
+        
+        <div class="modal-inputs">
+            <div class="input-group">
+                <label>Használt Súly (kg):</label>
+                <input type="number" id="calc-weight" placeholder="0" value="60">
+            </div>
+            <div class="input-group">
+                <label>Ismétlésszám:</label>
+                <input type="number" id="calc-reps" placeholder="0" value="5">
+            </div>
+        </div>
+
+        <div class="calc-result">
+            <span>Becsült 1RM Max:</span>
+            <strong id="calc-result-value">0 kg</strong>
+        </div>
+
+        <div class="modal-buttons">
+            <button id="close-calc-btn" class="close-btn">Bezárás</button>
+        </div>
+    </div>
+</div>
+
+<script src="j3.js"></script>
+</body>
+</html>
