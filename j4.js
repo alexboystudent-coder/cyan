@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // A heti beosztás (arányos terheléssel, módosítva: lábedzés hétfőn és csütörtökön)
+    // A hetti beosztás (arányos terheléssel, módosítva: lábedzés hétfőn és csütörtökön)
     const schedule = {
         0: { // Hétfő
             title: "🦵 HÉTFŐ: LÁBEDZÉS #1 & ACHILLES",
