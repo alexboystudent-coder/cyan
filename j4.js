@@ -1,22 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // A heti beosztás (arányos terheléssel)
+    // A heti beosztás (arányos terheléssel, módosítva: lábedzés hétfőn és csütörtökön)
     const schedule = {
         0: { // Hétfő
-            title: "👀 HÉTFŐ: SZEM & TARTÁS & SECRET",
+            title: "🦵 HÉTFŐ: LÁBEDZÉS #1 & ACHILLES",
             tasks: [
-                { id: "mon_eye", text: "👁️ Szem edzés (Fókuszváltás 8-as alakban)", desc: "10-10 kör mindkét irányba, majd közeli és távoli pont váltott fókuszálása 2 percig." },
-                { id: "mon_chin", text: "📏 Chin Tucks", desc: "2x20 ismétlés. Húzd hátra az állad, mintha tokát csinálnál, tartsd meg 2 mp-ig." },
-                { id: "mon_fingers", text: "✋ Ujjak edzése", desc: "Ujjnyújtás gumiszalaggal vagy szorítógyakorlat: 3x15 ismétlés mindkét kézen.", hasInput: true, unit: "szint" },
-                { id: "mon_secret", text: "🔒 Titkos Protokoll", desc: "15 perc mély fókuszú légzés / Vizualizáció a céljaidról csendben." }
+                { id: "mon_squat", text: "🏋️ Guggolás", desc: "2x10 ismétlés. Állítható súllyal a saját szintednek megfelelően.", hasInput: true, unit: "kg" },
+                { id: "mon_jumps", text: "⚡ Váltottlábas ugrás", desc: "2x10 ismétlés (dinamikus kitörésből ugrás)." },
+                { id: "mon_cardio", text: "🔥 Választható Állóképesség", desc: "Válassz egyet: Sprintek (5x50m) / Ugrálókötél (3 perc) / Magasugrás (3x8)." },
+                { id: "mon_achilles", text: "🦶 Achilles Training", desc: "Excentrikus vádli emelés lépcsőfokon: 2x12 lassan leengedve." }
             ]
         },       
         1: { // Kedd
-            title: "🦵 KEDD: LÁBEDZÉS #1 & ACHILLES",
+            title: "👀 KEDD: SZEM & TARTÁS & SECRET",
             tasks: [
-                { id: "tue_squat", text: "🏋️ Guggolás", desc: "2x10 ismétlés. Állítható súllyal a saját szintednek megfelelően.", hasInput: true, unit: "kg" },
-                { id: "tue_jumps", text: "⚡ Váltottlábas ugrás", desc: "2x10 ismétlés (dinamikus kitörésből ugrás)." },
-                { id: "tue_cardio", text: "🔥 Választható Állóképesség", desc: "Válassz egyet: Sprintek (5x50m) / Ugrálókötél (3 perc) / Magasugrás (3x8)." },
-                { id: "tue_achilles", text: "🦶 Achilles Training", desc: "Excentrikus vádli emelés lépcsőfokon: 2x12 lassan leengedve." }
+                { id: "tue_eye", text: "👁️ Szem edzés (Fókuszváltás 8-as alakban)", desc: "10-10 kör mindkét irányba, majd közeli és távoli pont váltott fókuszálása 2 percig." },
+                { id: "tue_chin", text: "📏 Chin Tucks", desc: "2x20 ismétlés. Húzd hátra az állad, mintha tokát csinálnál, tartsd meg 2 mp-ig." },
+                { id: "tue_fingers", text: "✋ Ujjak edzése", desc: "Ujjnyújtás gumiszalaggal vagy szorítógyakorlat: 3x15 ismétlés mindkét kézen.", hasInput: true, unit: "szint" },
+                { id: "tue_secret", text: "🔒 Titkos Protokoll", desc: "15 perc mély fókuszú légzés / Vizualizáció a céljaidról csendben." }
             ]
         },
         2: { // Szerda
@@ -28,20 +28,20 @@ document.addEventListener("DOMContentLoaded", () => {
             ]
         },
         3: { // Csütörtök
-            title: "👁️ CSÜTÖRTÖK: SZEM & CHIN TUCKS & SECRET",
+            title: "🦵 CSÜTÖRTÖK: LÁBEDZÉS #2 & ACHILLES",
             tasks: [
-                { id: "thu_eye", text: "👁️ Szem edzés (Tornáztatás)", desc: "Nézz fel-le, balra-jobbra 15-ször a fej mozgatása nélkül." },
-                { id: "thu_chin", text: "📏 Chin Tucks", desc: "2x20 ismétlés a helyes nyaki tartásért." },
-                { id: "thu_secret", text: "🔒 Titkos Protokoll", desc: "Kiber-fókusz edzés: 10 perc digitális méregtelenítés és mentális újraindítás." }
+                { id: "thu_squat", text: "🏋️ Guggolás", desc: "2x10 ismétlés. Állítható súllyal.", hasInput: true, unit: "kg" },
+                { id: "thu_jumps", text: "⚡ Váltottlábas ugrás", desc: "2x10 ismétlés." },
+                { id: "thu_cardio", text: "🔥 Választható Állóképesség", desc: "Válassz egyet: Sprintek / Ugrálókötél / Magasugrás." },
+                { id: "thu_achilles", text: "🦶 Achilles Training", desc: "2x15 sarokemelés és megtartás." }
             ]
         },
         4: { // Péntek
-            title: "🦵 PÉNTEK: LÁBEDZÉS #2 & ACHILLES",
+            title: "👁️ PÉNTEK: SZEM & CHIN TUCKS & SECRET",
             tasks: [
-                { id: "fri_squat", text: "🏋️ Guggolás", desc: "2x10 ismétlés. Állítható súllyal.", hasInput: true, unit: "kg" },
-                { id: "fri_jumps", text: "⚡ Váltottlábas ugrás", desc: "2x10 ismétlés." },
-                { id: "fri_cardio", text: "🔥 Választható Állóképesség", desc: "Válassz egyet: Sprintek / Ugrálókötél / Magasugrás." },
-                { id: "fri_achilles", text: "🦶 Achilles Training", desc: "2x15 sarokemelés és megtartás." }
+                { id: "fri_eye", text: "👁️ Szem edzés (Tornáztatás)", desc: "Nézz fel-le, balra-jobbra 15-ször a fej mozgatása nélkül." },
+                { id: "fri_chin", text: "📏 Chin Tucks", desc: "2x20 ismétlés a helyes nyaki tartásért." },
+                { id: "fri_secret", text: "🔒 Titkos Protokoll", desc: "Kiber-fókusz edzés: 10 perc digitális méregtelenítés és mentális újraindítás." }
             ]
         },
         5: { // Szombat
@@ -63,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Automatikusan a mai nap indexének meghatározása (0 = Hétfő, ..., 6 = Vasárnap)
     let todayIndex = new Date().getDay();
-    // A JavaScript getDay() 0-tól (Vasárnap) 6-ig számoz, igazítsuk át Hétfő alapúvá (0 = Hétfő):
     let currentDayIndex = (todayIndex === 0) ? 6 : todayIndex - 1;
 
     const label = document.getElementById("current-day-label");
@@ -132,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.saveWeight = (id, val) => {
         if (!savedData[id]) savedData[id] = {};
         savedData[id].weight = val;
-        localStorage.setItem("special_update_data", JSON.stringify(savedData)); // Javítva a kulcs konzisztencia végett
+        localStorage.setItem("special_update_data", JSON.stringify(savedData));
         localStorage.setItem("special_workout_data", JSON.stringify(savedData));
     };
 
