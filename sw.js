@@ -1,25 +1,53 @@
-const CACHE_NAME = 'felho-tervezo-v1';
-const ASSETS = [
-  './ez.html',
-  './c.css',
-  './J.js',
-  './manifest.json',
-  'https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap',
-  'https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js'
+const CACHE_NAME = 'cyberworkout-v2';
+const assetsToCache = [
+    './index.html',
+    './c.css',
+    './c1.css',
+    './c2.css',
+    './pr.css',
+    './ez1.html',
+    './ez2.html',
+    './ez3.html',
+    './ez4.html',
+    './ez5.html',
+    './J.js',
+    './j1.js',
+    './j2.js',
+    './j3.js',
+    './j4.js',
+    './manifest.json',
+    './icon-512.png'
 ];
 
-self.addEventListener('install', (e) => {
-  e.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS);
-    })
-  );
+// Telepítés esemény: az összes aktív fájl letöltése és mentése
+self.addEventListener('install', (event) => {
+    event.waitUntil(
+        caches.open(CACHE_NAME).then((cache) => {
+            return cache.addAll(assetsToCache);
+        })
+    );
 });
 
-self.addEventListener('fetch', (e) => {
-  e.respondWith(
-    caches.match(e.request).then((response) => {
-      return response || fetch(e.request);
-    })
-  );
+// Aktiválás esemény: a régi gyorsítótárak takarítása
+self.addEventListener('activate', (event) => {
+    event.waitUntil(
+        caches.keys().then((keys) => {
+            return Promise.all(
+                keys.map((key) => {
+                    if (key !== CACHE_NAME) {
+                        return caches.delete(key);
+                    }
+                })
+            );
+        })
+    );
+});
+
+// Fetch esemény: offline kiszolgálás a cache-ből
+self.addEventListener('fetch', (event) => {
+    event.respondWith(
+        caches.match(event.request).then((response) => {
+            return response || fetch(event.request);
+        })
+    );
 });
