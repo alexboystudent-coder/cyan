@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // A heti beosztás (összes nap benne van, a kedd, péntek és vasárnap frissítve)
+    // A heti beosztás: a napok a régiek, a titkos protokol átkerült csütörtökről péntekre
     const schedule = {
         0: { // Hétfő
             title: "🦵 HÉTFŐ: LÁBEDZÉS #1 & ACHILLES",
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 { id: "mon_achilles", text: "🦶 Achilles Training", desc: "Excentrikus vádli emelés lépcsőfokon: 2x12 lassan leengedve." }
             ]
         },       
-        1: { // Kedd (Csak a megadott speciális feladatokkal)
+        1: { // Kedd
             title: "👀 KEDD: SZEM & TARTÁS & SECRET",
             tasks: [
                 { id: "tue_eye", text: "👁️ Szem edzés (Fókuszváltás 8-as alakban)", desc: "10-10 kör mindkét irányba, majd közeli és távoli pont váltott fókuszálása 2 percig." },
@@ -27,21 +27,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 { id: "wed_jaw", text: "🦴 Jaw Training", desc: "Állkapocs tónusgyakorlat: rágóizom feszítés 3x30 mp (szájpadlásra szorított nyelvvel)." }
             ]
         },
-        3: { // Csütörtök
+        3: { // Csütörtök (Itt már nincs benne a Titkos Protokoll)
             title: "🦵 CSÜTÖRTÖK: LÁBEDZÉS #2 & ACHILLES",
             tasks: [
                 { id: "thu_squat", text: "🏋️ Guggolás", desc: "2x10 ismétlés. Állítható súllyal.", hasInput: true, unit: "kg" },
                 { id: "thu_jumps", text: "⚡ Váltottlábas ugrás", desc: "2x10 ismétlés." },
                 { id: "thu_cardio", text: "🔥 Választható Állóképesség", desc: "Válassz egyet: Sprintek / Ugrálókötél / Magasugrás." },
-                { id: "thu_achilles", text: "🦶 Achilles Training", desc: "2x15 sarokemelés és megtartás." },
-                { id: "thu_secret", text: "🔒 Titkos Protokoll", desc: "15 perc mély fókuszú légzés / Vizualizáció a céljaidról csendben." }
+                { id: "thu_achilles", text: "🦶 Achilles Training", desc: "2x15 sarokemelés és megtartás." }
             ]
         },
-        4: { // Péntek (Csak a megadott speciális feladatokkal)
-            title: "👁️ PÉNTEK: SZEM & CHIN TUCKS",
+        4: { // Péntek (Itt lett hozzáadva a Titkos Protokoll)
+            title: "👁️ PÉNTEK: SZEM & CHIN TUCKS & SECRET",
             tasks: [
                 { id: "fri_eye", text: "👁️ Szem edzés (Tornáztatás)", desc: "Nézz fel-le, balra-jobbra 15-ször a fej mozgatása nélkül." },
-                { id: "fri_chin", text: "📏 Chin Tucks", desc: "2x20 ismétlés a helyes nyaki tartásért." }
+                { id: "fri_chin", text: "📏 Chin Tucks", desc: "2x20 ismétlés a helyes nyaki tartásért." },
+                { id: "fri_secret", text: "🔒 Titkos Protokoll", desc: "15 perc mély fókuszú légzés / Vizualizáció a céljaidról csendben." }
             ]
         },
         5: { // Szombat
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 { id: "sat_jaw", text: "🦴 Jaw Training", desc: "Állkapocs ellenállás gyakorlat (kézzel tartott áll nyitás/zárás) 3x10." }
             ]
         },
-        6: { // Vasárnap (Csak a megadott speciális feladatokkal)
+        6: { // Vasárnap
             title: "🧘 VASÁRNAP: SZEM PIHENTETÉS & TITKOS PROTOKOLL",
             tasks: [
                 { id: "sun_eye", text: "👁️ Szem pihentetés", desc: "Meleg tenyérrátornyozás (Palming) 3 percig." },
