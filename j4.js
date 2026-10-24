@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 { id: "thu_jumps", text: "⚡ Váltottlábas ugrás", desc: "2x10 ismétlés." },
                 { id: "thu_cardio", text: "🔥 Választható Állóképesség", desc: "Válassz egyet: Sprintek / Ugrálókötél / Magasugrás." },
                 { id: "thu_achilles", text: "🦶 Achilles Training", desc: "2x15 sarokemelés és megtartás." }
+                { id: "tue_secret", text: "🔒 Titkos Protokoll", desc: "15 perc mély fókuszú légzés / Vizualizáció a céljaidról csendben." }
             ]
         },
         4: { // Péntek
