@@ -42,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
             tasks: [
                 { id: "fri_eye", text: "👁️ Szem edzés (Tornáztatás)", desc: "Nézz fel-le, balra-jobbra 15-ször a fej mozgatása nélkül." },
                 { id: "fri_chin", text: "📏 Chin Tucks", desc: "2x20 ismétlés a helyes nyaki tartásért." },
-                { id: "fri_secret", text: "🔒 Titkos Protokoll", desc: "Kiber-fókusz edzés: 10 perc digitális méregtelenítés és mentális újraindítás." }
             ]
         },
         5: { // Szombat
