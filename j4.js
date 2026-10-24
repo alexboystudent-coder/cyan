@@ -1,16 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // A hetti beosztás (arányos terheléssel, módosítva: lábedzés hétfőn és csütörtökön)
+    // Csak a Speciális napok: Kedd (1), Péntek (4) és Vasárnap (6)
     const schedule = {
-        0: { // Hétfő
-            title: "🦵 HÉTFŐ: LÁBEDZÉS #1 & ACHILLES",
-            tasks: [
-                { id: "mon_squat", text: "🏋️ Guggolás", desc: "2x10 ismétlés. Állítható súllyal a saját szintednek megfelelően.", hasInput: true, unit: "kg" },
-                { id: "mon_jumps", text: "⚡ Váltottlábas ugrás", desc: "2x10 ismétlés (dinamikus kitörésből ugrás)." },
-                { id: "mon_cardio", text: "🔥 Választható Állóképesség", desc: "Válassz egyet: Sprintek (5x50m) / Ugrálókötél (3 perc) / Magasugrás (3x8)." },
-                { id: "mon_achilles", text: "🦶 Achilles Training", desc: "Excentrikus vádli emelés lépcsőfokon: 2x12 lassan leengedve." }
-            ]
-        },       
-        1: { // Kedd
+        0: { // Kedd (Index 0 a tömbben)
             title: "👀 KEDD: SZEM & TARTÁS & SECRET",
             tasks: [
                 { id: "tue_eye", text: "👁️ Szem edzés (Fókuszváltás 8-as alakban)", desc: "10-10 kör mindkét irányba, majd közeli és távoli pont váltott fókuszálása 2 percig." },
@@ -19,51 +10,31 @@ document.addEventListener("DOMContentLoaded", () => {
                 { id: "tue_secret", text: "🔒 Titkos Protokoll", desc: "15 perc mély fókuszú légzés / Vizualizáció a céljaidról csendben." }
             ]
         },
-        2: { // Szerda
-            title: "💆 SZERDA: NYAK & JAW RECOVERY",
-            tasks: [
-                { id: "wed_neck_back", text: "🔄 Hátsó nyak körzés", desc: "2x15 lassan, kontrolláltan mindkét irányba." },
-                { id: "wed_neck_side", text: "🔄 Oldalsó nyak körzés", desc: "2x15 finom vállhoz döntés és körzés." },
-                { id: "wed_jaw", text: "🦴 Jaw Training", desc: "Állkapocs tónusgyakorlat: rágóizom feszítés 3x30 mp (szájpadlásra szorított nyelvvel)." }
-            ]
-        },
-        3: { // Csütörtök
-            title: "🦵 CSÜTÖRTÖK: LÁBEDZÉS #2 & ACHILLES",
-            tasks: [
-                { id: "thu_squat", text: "🏋️ Guggolás", desc: "2x10 ismétlés. Állítható súllyal.", hasInput: true, unit: "kg" },
-                { id: "thu_jumps", text: "⚡ Váltottlábas ugrás", desc: "2x10 ismétlés." },
-                { id: "thu_cardio", text: "🔥 Választható Állóképesség", desc: "Válassz egyet: Sprintek / Ugrálókötél / Magasugrás." },
-                { id: "thu_achilles", text: "🦶 Achilles Training", desc: "2x15 sarokemelés és megtartás." }
-                { id: "tue_secret", text: "🔒 Titkos Protokoll", desc: "15 perc mély fókuszú légzés / Vizualizáció a céljaidról csendben." }
-            ]
-        },
-        4: { // Péntek
+        1: { // Péntek (Index 1 a tömbben)
             title: "👁️ PÉNTEK: SZEM & CHIN TUCKS & SECRET",
             tasks: [
                 { id: "fri_eye", text: "👁️ Szem edzés (Tornáztatás)", desc: "Nézz fel-le, balra-jobbra 15-ször a fej mozgatása nélkül." },
-                { id: "fri_chin", text: "📏 Chin Tucks", desc: "2x20 ismétlés a helyes nyaki tartásért." },
+                { id: "fri_chin", text: "📏 Chin Tucks", desc: "2x20 ismétlés a helyes nyaki tartásért." }
             ]
         },
-        5: { // Szombat
-            title: "💆 SZOMBAT: FULL NYAK & JAW PROTOKOL",
-            tasks: [
-                { id: "sat_neck_back", text: "🔄 Hátsó nyak körzés", desc: "2x15 ismétlés." },
-                { id: "sat_neck_side", text: "🔄 Oldalsó nyak körzés", desc: "2x15 ismétlés." },
-                { id: "sat_jaw", text: "🦴 Jaw Training", desc: "Állkapocs ellenállás gyakorlat (kézzel tartott áll nyitás/zárás) 3x10." }
-            ]
-        },
-        6: { // Vasárnap
+        2: { // Vasárnap (Index 2 a tömbben)
             title: "🧘 VASÁRNAP: PIHENŐ & TITKOS REGENERÁCIÓ",
             tasks: [
-                { id: "sun_eye", text: "👁️ szem pihentetés", desc: "Meleg tenyérrátornyozás (Palming) 3 percig." },
+                { id: "sun_eye", text: "👁️ Szem pihentetés", desc: "Meleg tenyérrátornyozás (Palming) 3 percig." },
                 { id: "sun_secret", text: "🔒 Titkos Protokoll", desc: "Heti értékelés és jövő heti célok kitűzése." }
             ]
         }
     };
 
-    // Automatikusan a mai nap indexének meghatározása (0 = Hétfő, ..., 6 = Vasárnap)
-    let todayIndex = new Date().getDay();
-    let currentDayIndex = (todayIndex === 0) ? 6 : todayIndex - 1;
+    const dayKeys = Object.keys(schedule);
+    
+    // Automatikus kezdőnap kiválasztása a mai nap alapján (ha Kedd, Péntek vagy Vasárnap, azt mutatja, különben az elsőt)
+    const jsDay = new Date().getDay(); // 0: Vasárnap, 2: Kedd, 5: Péntek
+    let currentDayIndex = 0;
+    
+    if (jsDay === 2) currentDayIndex = 0;       // Kedd
+    else if (jsDay === 5) currentDayIndex = 1;  // Péntek
+    else if (jsDay === 0) currentDayIndex = 2;  // Vasárnap
 
     const label = document.getElementById("current-day-label");
     const container = document.getElementById("task-container");
@@ -137,14 +108,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (prevBtn) {
         prevBtn.addEventListener("click", () => {
-            currentDayIndex = (currentDayIndex - 1 + 7) % 7;
+            currentDayIndex = (currentDayIndex - 1 + dayKeys.length) % dayKeys.length;
             renderDay(currentDayIndex);
         });
     }
 
     if (nextBtn) {
         nextBtn.addEventListener("click", () => {
-            currentDayIndex = (currentDayIndex + 1) % 7;
+            currentDayIndex = (currentDayIndex + 1) % dayKeys.length;
             renderDay(currentDayIndex);
         });
     }
