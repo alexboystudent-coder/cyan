@@ -1,31 +1,42 @@
+:root {
+    --bg-color: #0b0f19;
+    --card-bg: rgba(18, 24, 38, 0.7);
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+    --accent-pink: #f43f5e;
+    --accent-amber: #f59e0b;
+    --border-color: rgba(255, 255, 255, 0.08);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
-    background-color: #030712;
-    color: #f8fafc;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 24px;
     position: relative;
     overflow-x: hidden;
 }
 
-/* Elmosott neon háttér-effektek (Blurred Glassmorphism) */
+/* Elmosott háttér-effektek */
 .bg-blur-1 {
     position: fixed;
     top: -10%;
     left: -10%;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(0, 255, 135, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
-    filter: blur(80px);
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(244, 63, 94, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+    filter: blur(90px);
     z-index: 0;
     pointer-events: none;
 }
@@ -34,9 +45,9 @@ body {
     position: fixed;
     bottom: -10%;
     right: -10%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(96, 239, 255, 0.25) 0%, rgba(147, 51, 234, 0.2) 70%);
+    width: 550px;
+    height: 550px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
     filter: blur(100px);
     z-index: 0;
     pointer-events: none;
@@ -55,22 +66,22 @@ body {
     position: absolute;
     top: -50px;
     left: 0;
-    color: #94a3b8;
+    color: var(--text-secondary);
     text-decoration: none;
-    font-weight: 700;
-    font-size: 0.95rem;
+    font-weight: 600;
+    font-size: 0.9rem;
     padding: 8px 16px;
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     transition: all 0.3s ease;
 }
 
 .back-btn:hover {
-    color: #60efff;
-    border-color: #60efff;
-    box-shadow: 0 0 15px rgba(96, 239, 255, 0.4);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.2);
     transform: translateX(-3px);
 }
 
@@ -79,121 +90,154 @@ body {
 }
 
 .glow-title {
-    font-size: 2.5rem;
-    font-weight: 900;
-    letter-spacing: 2px;
-    background: linear-gradient(135deg, #00ff87 0%, #60efff 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 25px rgba(0, 255, 135, 0.4);
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+    margin-bottom: 8px;
 }
 
 .subtitle {
-    color: #94a3b8;
-    font-size: 1.1rem;
-    margin-top: 8px;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 400;
 }
 
-/* Kártyák elrendezése üveghatású (Glassmorphism) szűrővel */
+/* Kártyák elrendezése */
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    gap: 24px;
 }
 
 .workout-card {
-    background: rgba(15, 23, 42, 0.65);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
     border-radius: 20px;
-    padding: 35px 25px;
+    padding: 32px 24px;
     text-decoration: none;
     color: inherit;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
-.card-icon {
-    font-size: 3.5rem;
-    margin-bottom: 15px;
+/* Badge jelölések a sarokban */
+.badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    text-transform: uppercase;
+}
+
+.badge-pink {
+    background: rgba(244, 63, 94, 0.15);
+    color: var(--accent-pink);
+    border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+.badge-amber {
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--accent-amber);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* Ikon konténerek */
+.card-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.icon-pink {
+    background: rgba(244, 63, 94, 0.1);
+    color: var(--accent-pink);
+    border: 1px solid rgba(244, 63, 94, 0.2);
+}
+
+.icon-amber {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--accent-amber);
+    border: 1px solid rgba(245, 158, 11, 0.2);
 }
 
 .workout-card h2 {
-    font-size: 1.5rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    margin-bottom: 8px;
+    color: #ffffff;
 }
 
 .workout-card p {
-    color: #94a3b8;
-    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
     line-height: 1.5;
-    margin-bottom: 25px;
+    margin-bottom: 24px;
     flex-grow: 1;
 }
 
 .card-btn {
-    background: rgba(30, 41, 59, 0.8);
-    color: #38bdf8;
-    font-weight: 700;
-    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    font-weight: 600;
+    padding: 10px 24px;
     border-radius: 12px;
-    transition: 0.3s;
-    letter-spacing: 1px;
-    border: 1px solid rgba(56, 189, 248, 0.2);
+    transition: all 0.2s ease;
+    font-size: 0.85rem;
+    border: 1px solid var(--border-color);
 }
 
-/* Hover effektek - Alap Edzés */
-.workout-card.basic:hover {
-    transform: translateY(-8px);
-    border-color: #00ff87;
-    box-shadow: 0 0 35px rgba(0, 255, 135, 0.35);
+/* Hover effektek */
+.workout-card:hover .card-icon-wrapper {
+    transform: scale(1.08);
 }
 
-.workout-card.basic:hover .card-btn {
-    background: #00ff87;
-    color: #030712;
-    box-shadow: 0 0 20px rgba(0, 255, 135, 0.6);
-    border-color: #00ff87;
-}
-
-/* Hover effektek - Speciális Edzés */
 .workout-card.special:hover {
-    transform: translateY(-8px);
-    border-color: #ff0055;
-    box-shadow: 0 0 35px rgba(255, 0, 85, 0.35);
+    transform: translateY(-5px);
+    border-color: rgba(244, 63, 94, 0.4);
+    box-shadow: 0 15px 35px rgba(244, 63, 94, 0.12);
 }
 
 .workout-card.special:hover h2 {
-    color: #ff0055;
+    color: var(--accent-pink);
 }
 
 .workout-card.special:hover .card-btn {
-    background: #ff0055;
+    background: var(--accent-pink);
     color: #ffffff;
-    box-shadow: 0 0 20px rgba(255, 0, 85, 0.6);
-    border-color: #ff0055;
+    border-color: var(--accent-pink);
+    box-shadow: 0 0 15px rgba(244, 63, 94, 0.4);
 }
 
-/* Rekordok Kártya Hover */
 .workout-card.pr-card-menu:hover {
-    transform: translateY(-8px);
-    border-color: #f59e0b;
-    box-shadow: 0 0 35px rgba(245, 158, 11, 0.35);
+    transform: translateY(-5px);
+    border-color: rgba(245, 158, 11, 0.4);
+    box-shadow: 0 15px 35px rgba(245, 158, 11, 0.12);
 }
 
 .workout-card.pr-card-menu:hover h2 {
-    color: #f59e0b;
+    color: var(--accent-amber);
 }
 
 .workout-card.pr-card-menu:hover .card-btn {
-    background: #f59e0b;
-    color: #030712;
-    box-shadow: 0 0 20px rgba(245, 158, 11, 0.6);
-    border-color: #f59e0b;
+    background: var(--accent-amber);
+    color: #0b0f19;
+    border-color: var(--accent-amber);
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
 }
