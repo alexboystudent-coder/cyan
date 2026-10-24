@@ -3,8 +3,8 @@
     --card-bg: rgba(18, 24, 38, 0.7);
     --text-primary: #f3f4f6;
     --text-secondary: #9ca3af;
-    --accent-primary: #10b981; /* Elegánsabb smaragdzöld */
-    --accent-blue: #38bdf8;
+    --accent-green: #10b981;
+    --accent-pink: #f43f5e;
     --accent-amber: #f59e0b;
     --border-color: rgba(255, 255, 255, 0.08);
 }
@@ -29,7 +29,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Finom, elegáns háttérfények */
+/* Finom, háttérbeli fényudvarok */
 .bg-blur-1 {
     position: fixed;
     top: -10%;
@@ -67,11 +67,11 @@ body {
 }
 
 .glow-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 800;
     letter-spacing: -0.5px;
     color: #ffffff;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .subtitle {
@@ -83,7 +83,7 @@ body {
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
+    gap: 24px;
 }
 
 .workout-card {
@@ -98,22 +98,77 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
-.card-icon {
-    font-size: 2.5rem;
-    margin-bottom: 16px;
-    opacity: 0.9;
+/* Kis feliratok a kártyák jobb felső sarkában */
+.badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    text-transform: uppercase;
+}
+
+.badge-green {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--accent-green);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-pink {
+    background: rgba(244, 63, 94, 0.15);
+    color: var(--accent-pink);
+    border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+.badge-amber {
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--accent-amber);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* Ikon konténerek háttérfénnyel */
+.card-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.icon-green {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--accent-green);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.icon-pink {
+    background: rgba(244, 63, 94, 0.1);
+    color: var(--accent-pink);
+    border: 1px solid rgba(244, 63, 94, 0.2);
+}
+
+.icon-amber {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--accent-amber);
+    border: 1px solid rgba(245, 158, 11, 0.2);
 }
 
 .workout-card h2 {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-weight: 700;
     letter-spacing: -0.2px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     color: #ffffff;
 }
 
@@ -129,7 +184,7 @@ body {
     background: rgba(255, 255, 255, 0.05);
     color: var(--text-primary);
     font-weight: 600;
-    padding: 10px 20px;
+    padding: 10px 24px;
     border-radius: 12px;
     transition: all 0.2s ease;
     font-size: 0.85rem;
@@ -137,38 +192,45 @@ body {
 }
 
 /* Hover effektek */
+.workout-card:hover .card-icon-wrapper {
+    transform: scale(1.08);
+}
+
 .workout-card.basic:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
     border-color: rgba(16, 185, 129, 0.4);
-    box-shadow: 0 15px 35px rgba(16, 185, 129, 0.1);
+    box-shadow: 0 15px 35px rgba(16, 185, 129, 0.12);
 }
 
 .workout-card.basic:hover .card-btn {
-    background: var(--accent-primary);
+    background: var(--accent-green);
     color: #ffffff;
-    border-color: var(--accent-primary);
+    border-color: var(--accent-green);
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
 }
 
 .workout-card.special:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
     border-color: rgba(244, 63, 94, 0.4);
-    box-shadow: 0 15px 35px rgba(244, 63, 94, 0.1);
+    box-shadow: 0 15px 35px rgba(244, 63, 94, 0.12);
 }
 
 .workout-card.special:hover .card-btn {
-    background: #f43f5e;
+    background: var(--accent-pink);
     color: #ffffff;
-    border-color: #f43f5e;
+    border-color: var(--accent-pink);
+    box-shadow: 0 0 15px rgba(244, 63, 94, 0.4);
 }
 
 .workout-card.pr-card-menu:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
     border-color: rgba(245, 158, 11, 0.4);
-    box-shadow: 0 15px 35px rgba(245, 158, 11, 0.1);
+    box-shadow: 0 15px 35px rgba(245, 158, 11, 0.12);
 }
 
 .workout-card.pr-card-menu:hover .card-btn {
     background: var(--accent-amber);
     color: #0b0f19;
     border-color: var(--accent-amber);
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
 }
