@@ -29,7 +29,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Finom, elegáns háttérfények (nem túl túlzó cyberpunk) */
+/* Finom, elegáns háttérfények */
 .bg-blur-1 {
     position: fixed;
     top: -10%;
@@ -136,7 +136,7 @@ body {
     border: 1px solid var(--border-color);
 }
 
-/* Finom, prémium hover kártya effektek túlzott neon nélkül */
+/* Hover effektek */
 .workout-card.basic:hover {
     transform: translateY(-4px);
     border-color: rgba(16, 185, 129, 0.4);
