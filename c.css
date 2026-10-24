@@ -1,19 +1,19 @@
 :root {
-    --bg-color: #030712;
-    --card-bg: rgba(15, 23, 42, 0.65);
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --accent-neon: #00ff87;
-    --accent-cyan: #38bdf8;
+    --bg-color: #0b0f19;
+    --card-bg: rgba(18, 24, 38, 0.7);
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+    --accent-primary: #10b981; /* Elegánsabb smaragdzöld */
+    --accent-blue: #38bdf8;
     --accent-amber: #f59e0b;
-    --border-color: rgba(255, 255, 255, 0.1);
+    --border-color: rgba(255, 255, 255, 0.08);
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -24,20 +24,20 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 24px;
     position: relative;
     overflow-x: hidden;
 }
 
-/* Elmosott neon háttér-effektek (Blurred Glassmorphism) */
+/* Finom, elegáns háttérfények (nem túl túlzó cyberpunk) */
 .bg-blur-1 {
     position: fixed;
     top: -10%;
     left: -10%;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(0, 255, 135, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
-    filter: blur(80px);
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+    filter: blur(90px);
     z-index: 0;
     pointer-events: none;
 }
@@ -46,16 +46,16 @@ body {
     position: fixed;
     bottom: -10%;
     right: -10%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(96, 239, 255, 0.25) 0%, rgba(147, 51, 234, 0.2) 70%);
+    width: 550px;
+    height: 550px;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
     filter: blur(100px);
     z-index: 0;
     pointer-events: none;
 }
 
 .menu-container {
-    max-width: 900px;
+    max-width: 960px;
     width: 100%;
     text-align: center;
     position: relative;
@@ -63,125 +63,112 @@ body {
 }
 
 .menu-header {
-    margin-bottom: 40px;
+    margin-bottom: 48px;
 }
 
 .glow-title {
-    font-size: 2.2rem;
-    font-weight: 900;
-    letter-spacing: 2px;
-    background: linear-gradient(135deg, var(--accent-neon) 0%, var(--accent-cyan) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 25px rgba(0, 255, 135, 0.4);
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+    margin-bottom: 10px;
 }
 
 .subtitle {
     color: var(--text-secondary);
-    font-size: 1.05rem;
-    margin-top: 8px;
+    font-size: 1rem;
+    font-weight: 400;
 }
 
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
 }
 
 .workout-card {
     background: var(--card-bg);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--border-color);
     border-radius: 20px;
-    padding: 30px 20px;
+    padding: 32px 24px;
     text-decoration: none;
     color: inherit;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
     position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .card-icon {
-    font-size: 3rem;
-    margin-bottom: 15px;
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    opacity: 0.9;
 }
 
 .workout-card h2 {
-    font-size: 1.4rem;
-    font-weight: 800;
-    letter-spacing: 1px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.2px;
     margin-bottom: 10px;
+    color: #ffffff;
 }
 
 .workout-card p {
     color: var(--text-secondary);
     font-size: 0.9rem;
-    line-height: 1.4;
-    margin-bottom: 20px;
+    line-height: 1.5;
+    margin-bottom: 24px;
     flex-grow: 1;
 }
 
 .card-btn {
-    background: rgba(30, 41, 59, 0.8);
-    color: var(--accent-cyan);
-    font-weight: 700;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    font-weight: 600;
     padding: 10px 20px;
     border-radius: 12px;
-    transition: 0.3s;
-    letter-spacing: 1px;
-    border: 1px solid rgba(56, 189, 248, 0.2);
-    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    font-size: 0.85rem;
+    border: 1px solid var(--border-color);
 }
 
-/* Hover effektek - Alap Edzés */
+/* Finom, prémium hover kártya effektek túlzott neon nélkül */
 .workout-card.basic:hover {
-    transform: translateY(-8px);
-    border-color: var(--accent-neon);
-    box-shadow: 0 0 35px rgba(0, 255, 135, 0.35);
+    transform: translateY(-4px);
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 15px 35px rgba(16, 185, 129, 0.1);
 }
 
 .workout-card.basic:hover .card-btn {
-    background: var(--accent-neon);
-    color: var(--bg-color);
-    box-shadow: 0 0 20px rgba(0, 255, 135, 0.6);
-    border-color: var(--accent-neon);
+    background: var(--accent-primary);
+    color: #ffffff;
+    border-color: var(--accent-primary);
 }
 
-/* Hover effektek - Speciális Kinézet */
 .workout-card.special:hover {
-    transform: translateY(-8px);
-    border-color: #ff0055;
-    box-shadow: 0 0 35px rgba(255, 0, 85, 0.35);
-}
-
-.workout-card.special:hover h2 {
-    color: #ff0055;
+    transform: translateY(-4px);
+    border-color: rgba(244, 63, 94, 0.4);
+    box-shadow: 0 15px 35px rgba(244, 63, 94, 0.1);
 }
 
 .workout-card.special:hover .card-btn {
-    background: #ff0055;
+    background: #f43f5e;
     color: #ffffff;
-    box-shadow: 0 0 20px rgba(255, 0, 85, 0.6);
-    border-color: #ff0055;
+    border-color: #f43f5e;
 }
 
-/* Teendők Kártya Hover */
 .workout-card.pr-card-menu:hover {
-    transform: translateY(-8px);
-    border-color: var(--accent-amber);
-    box-shadow: 0 0 35px rgba(245, 158, 11, 0.35);
-}
-
-.workout-card.pr-card-menu:hover h2 {
-    color: var(--accent-amber);
+    transform: translateY(-4px);
+    border-color: rgba(245, 158, 11, 0.4);
+    box-shadow: 0 15px 35px rgba(245, 158, 11, 0.1);
 }
 
 .workout-card.pr-card-menu:hover .card-btn {
     background: var(--accent-amber);
-    color: var(--bg-color);
-    box-shadow: 0 0 20px rgba(245, 158, 11, 0.6);
+    color: #0b0f19;
     border-color: var(--accent-amber);
 }
