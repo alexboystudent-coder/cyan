@@ -61,9 +61,23 @@ function renderUI() {
         scheduledTasks.push({ id: 'logikai_jatek', name: '🧩 Logikai játék gyakorlás' });
     }
 
-    // Hosszú fürdés: 3 naponta
-    if (Math.abs(diffDays) % 3 === 0) {
-        scheduledTasks.push({ id: 'hosszu_furdes', name: '🛁 Hosszú fürdés' });
+    // Hosszú fürdés ellenőrzése a napok alapján (0: Vasárnap, 4: Csütörtök)
+    const currentDayOfWeek = selectedDate.getDay();
+    
+    if (currentDayOfWeek === 4) {
+        // Csütörtök: Normál fürdés
+        scheduledTasks.push({ 
+            id: 'hosszu_furdes_csutortok', 
+            name: '🛁 Hosszú fürdés (Normál)', 
+            desc: 'Leírás: Normál hosszú fürdés, pihenés és alapvető tisztálkodás.' 
+        });
+    } else if (currentDayOfWeek === 0) {
+        // Vasárnap: Mindenes fürdés
+        scheduledTasks.push({ 
+            id: 'hosszu_furdes_vasarnap', 
+            name: '🛁 Hosszú fürdés (Minden)', 
+            desc: 'Leírás: Teljes körű fürdés, alapos hajtisztítás, bőrradírozás és teljes relaxációs rutin.' 
+        });
     }
 
     // Lista megjelenítése
@@ -78,13 +92,21 @@ function renderUI() {
                 const isDone = history[dateKey].includes(task.id);
                 const li = document.createElement('li');
                 li.className = `task-item ${isDone ? 'completed' : ''}`;
-                li.style.cssText = 'display: flex; justify-content: space-between; align-items: center; padding: 12px; margin-bottom: 8px; background: rgba(255,255,255,0.05); border-radius: 10px;';
+                li.style.cssText = 'display: flex; flex-direction: column; padding: 12px; margin-bottom: 8px; background: rgba(255,255,255,0.05); border-radius: 10px;';
+
+                let descHtml = '';
+                if (task.desc) {
+                    descHtml = `<div style="margin-top: 6px; font-size: 0.85rem; color: #94a3b8; line-height: 1.4;">${task.desc}</div>`;
+                }
 
                 li.innerHTML = `
-                    <span class="task-text" style="${isDone ? 'text-decoration: line-through; opacity: 0.6;' : ''}">${task.name}</span>
-                    <button class="checkbox-btn" style="padding: 6px 12px; cursor: pointer; border-radius: 6px; border: none; background: ${isDone ? '#22c55e' : '#3b82f6'}; color: white;">
-                        ${isDone ? '✓ Kész' : 'Kész'}
-                    </button>
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                        <span class="task-text" style="${isDone ? 'text-decoration: line-through; opacity: 0.6;' : ''}">${task.name}</span>
+                        <button class="checkbox-btn" style="padding: 6px 12px; cursor: pointer; border-radius: 6px; border: none; background: ${isDone ? '#22c55e' : '#3b82f6'}; color: white;">
+                            ${isDone ? '✓ Kész' : 'Kész'}
+                        </button>
+                    </div>
+                    ${descHtml}
                 `;
 
                 const btn = li.querySelector('.checkbox-btn');
