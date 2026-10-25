@@ -69,14 +69,14 @@ function renderUI() {
         scheduledTasks.push({ 
             id: 'hosszu_furdes_csutortok', 
             name: '🛁 Hosszú fürdés (Normál)', 
-            desc: 'Leírás: Normál hosszú fürdés, pihenés és alapvető tisztálkodás.' 
+            desc: 'Leírás: Hajmosás ,arcszörzet Salicylic acid.' 
         });
     } else if (currentDayOfWeek === 0) {
         // Vasárnap: Mindenes fürdés
         scheduledTasks.push({ 
             id: 'hosszu_furdes_vasarnap', 
             name: '🛁 Hosszú fürdés (Minden)', 
-            desc: 'Leírás: Teljes körű fürdés, alapos hajtisztítás, bőrradírozás és teljes relaxációs rutin.' 
+            desc: 'Leírás: Hajmosás ,arcszörzet Salicylic acid,test borotválás.' 
         });
     }
 
