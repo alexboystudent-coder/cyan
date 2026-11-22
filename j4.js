@@ -1,114 +1,126 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Heti 5 napos program
+
     const schedule = {
-        0: { // Hétfő
-            title: "👀 HÉTFŐ: SZEM & TARTÁS",
+        0: {
+            title: "💪 HÉTFŐ: NYAKEDZÉS",
             tasks: [
                 {
-                    id: "mon_eye",
-                    text: "👁️ Szem fókuszváltás",
+                    id: "mon_neck",
+                    text: "💆 Nyakedzés",
+                    desc: "Kontrollált, könnyű nyakerősítő gyakorlatok. Ne használj nagy ellenállást."
+                },
+                {
+                    id: "mon_secret",
+                    text: "🔒 Titkos Protokoll",
+                    desc: "15 perc mély fókuszú légzés és vizualizáció a céljaidról."
+                }
+            ]
+        },
+
+        1: {
+            title: "👁️ KEDD: SZEM & UJJAK",
+            tasks: [
+                {
+                    id: "tue_eye",
+                    text: "👁️ Szemgyakorlat",
                     desc: "Közeli és távoli pontok váltott fókuszálása 2 percig."
                 },
                 {
-                    id: "mon_chin",
-                    text: "📏 Chin Tucks",
-                    desc: "2x15 ismétlés. Húzd hátra az állad, tartsd meg 2 másodpercig."
-                },
-                {
-                    id: "mon_fingers",
+                    id: "tue_fingers",
                     text: "✋ Ujjak edzése",
-                    desc: "Ujjnyújtás gumiszalaggal: 3x15 ismétlés."
+                    desc: "Ujjnyújtás gumiszalaggal: 3x15 ismétlés, kényelmes ellenállással."
+                },
+                {
+                    id: "tue_secret",
+                    text: "🔒 Titkos Protokoll",
+                    desc: "15 perc mély fókuszú légzés és vizualizáció."
                 }
             ]
         },
 
-        1: { // Kedd
-            title: "💆 KEDD: NYAK & JAW",
+        2: {
+            title: "🦴 SZERDA: JAW TRAINING",
             tasks: [
                 {
-                    id: "tue_neck_back",
-                    text: "🔄 Hátsó nyak",
-                    desc: "Finom, kontrollált nyakmozgások. 2x10 ismétlés."
-                },
-                {
-                    id: "tue_neck_side",
-                    text: "🔄 Oldalsó nyak",
-                    desc: "Finom oldalra döntések, erőltetés nélkül. 2x10."
-                },
-                {
-                    id: "tue_jaw",
-                    text: "🦴 Jaw Relaxation",
-                    desc: "Állkapocs lazítása és természetes nyugalmi pozíciójának gyakorlása."
+                    id: "wed_jaw",
+                    text: "🦴 Jaw Training",
+                    desc: "Finom állkapocs-mobilizálás és lazítás. Ne alkalmazz erős ellenállást vagy túlzott rágást."
                 }
             ]
         },
 
-        2: { // Szerda
-            title: "👁️ SZERDA: SZEM & UJJAК",
+        3: {
+            title: "📏 CSÜTÖRTÖK: CHIN TUCKS",
             tasks: [
-                {
-                    id: "wed_eye",
-                    text: "👁️ Szem fókusz",
-                    desc: "Közeli és távoli tárgyak váltott nézése 2 percig."
-                },
-                {
-                    id: "wed_fingers",
-                    text: "✋ Ujjak edzése",
-                    desc: "Ujjnyújtás gumiszalaggal: 3x15 ismétlés."
-                },
-                {
-                    id: "wed_posture",
-                    text: "📏 Tartás gyakorlása",
-                    desc: "Vállak természetes helyzetbe engedése és egyenes, kényelmes testtartás."
-                }
-            ]
-        },
-
-        3: { // Csütörtök
-            title: "💆 CSÜTÖRTÖK: NYAK & TARTÁS",
-            tasks: [
-                {
-                    id: "thu_neck",
-                    text: "🔄 Nyak mobilizálás",
-                    desc: "Finom oldalra döntések és kontrollált mozgások."
-                },
                 {
                     id: "thu_chin",
                     text: "📏 Chin Tucks",
-                    desc: "2x15 ismétlés, 2 másodperces megtartással."
+                    desc: "2x15 ismétlés. Húzd finoman hátra az állad, tartsd 2 másodpercig."
                 },
                 {
-                    id: "thu_posture",
-                    text: "🧍 Testtartás",
-                    desc: "Tudatos, kényelmes testtartás gyakorlása."
+                    id: "thu_secret",
+                    text: "🔒 Titkos Protokoll",
+                    desc: "15 perc mély fókuszú légzés és vizualizáció."
                 }
             ]
         },
 
-        4: { // Péntek
-            title: "👁️ PÉNTEK: SZEM & RECOVERY",
+        4: {
+            title: "💪 PÉNTEK: NYAK & SZEM",
             tasks: [
                 {
-                    id: "fri_eye",
-                    text: "👁️ Szem pihentetés",
-                    desc: "Rendszeres szünetek a képernyőtől és távoli pontra nézés."
-                },
-                {
                     id: "fri_neck",
-                    text: "🔄 Nyak lazítása",
-                    desc: "Finom, fájdalommentes nyakmozgások."
+                    text: "💆 Nyakedzés",
+                    desc: "Kontrollált, könnyű nyakerősítő gyakorlatok."
                 },
                 {
-                    id: "fri_recovery",
-                    text: "🧘 Recovery",
-                    desc: "5-10 perc nyugodt légzés és relaxáció."
+                    id: "fri_eye",
+                    text: "👁️ Szemgyakorlat",
+                    desc: "Közeli és távoli fókuszváltás 2 percig."
+                },
+                {
+                    id: "fri_secret",
+                    text: "🔒 Titkos Protokoll",
+                    desc: "15 perc mély fókuszú légzés és vizualizáció."
+                }
+            ]
+        },
+
+        5: {
+            title: "🦴 SZOMBAT: JAW & UJJAK",
+            tasks: [
+                {
+                    id: "sat_jaw",
+                    text: "🦴 Jaw Training",
+                    desc: "Finom állkapocs-mobilizálás és lazítás."
+                },
+                {
+                    id: "sat_fingers",
+                    text: "✋ Ujjak edzése",
+                    desc: "Ujjnyújtás gumiszalaggal: 3x15 ismétlés."
+                }
+            ]
+        },
+
+        6: {
+            title: "📏 VASÁRNAP: CHIN TUCKS",
+            tasks: [
+                {
+                    id: "sun_chin",
+                    text: "📏 Chin Tucks",
+                    desc: "2x15 ismétlés, finom kontrollált mozgással."
+                },
+                {
+                    id: "sun_secret",
+                    text: "🔒 Titkos Protokoll",
+                    desc: "Heti értékelés, célok áttekintése és 15 perc fókusz."
                 }
             ]
         }
     };
 
-    // Mai nap meghatározása
+    // MAI NAP MEGHATÁROZÁSA
     let todayIndex = new Date().getDay();
     let currentDayIndex = todayIndex === 0 ? 6 : todayIndex - 1;
 
@@ -117,49 +129,56 @@ document.addEventListener("DOMContentLoaded", () => {
     const prevBtn = document.getElementById("prev-day");
     const nextBtn = document.getElementById("next-day");
 
-    // LocalStorage betöltése
-    let savedData = JSON.parse(
-        localStorage.getItem("special_workout_data")
-    ) || {};
+    // LOCAL STORAGE BETÖLTÉSE
+    let savedData = {};
 
+    try {
+        savedData = JSON.parse(
+            localStorage.getItem("special_workout_data")
+        ) || {};
+    } catch (error) {
+        savedData = {};
+    }
+
+    // NAP MEGJELENÍTÉSE
     function renderDay(index) {
+
         const dayData = schedule[index];
 
         if (!label || !container) return;
-
-        if (!dayData) {
-            label.innerText = "🧘 PIHENŐNAP";
-            container.innerHTML = `
-                <li class="task-item">
-                    <span class="task-text">Pihenés és regeneráció</span>
-                </li>
-            `;
-            return;
-        }
 
         label.innerText = dayData.title;
         container.innerHTML = "";
 
         dayData.tasks.forEach(task => {
+
             const isDone = savedData[task.id]?.done || false;
 
             const li = document.createElement("li");
+
             li.className = `task-item ${isDone ? "completed" : ""}`;
 
             li.innerHTML = `
                 <div class="task-row-top">
-                    <span class="task-text">${task.text}</span>
+
+                    <span class="task-text">
+                        ${task.text}
+                    </span>
 
                     <div class="task-actions">
-                        <button class="focus-btn"
+
+                        <button
+                            class="focus-btn"
                             onclick="toggleDesc('${task.id}')">
                             Leírás
                         </button>
 
-                        <button class="checkbox-btn"
+                        <button
+                            class="checkbox-btn"
                             onclick="toggleDone('${task.id}', ${index})">
                             ${isDone ? "✓ Kész" : "Kész"}
                         </button>
+
                     </div>
                 </div>
 
@@ -172,19 +191,25 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Leírás megjelenítése
+    // LEÍRÁS MEGNYITÁSA / BEZÁRÁSA
     window.toggleDesc = (id) => {
+
         const box = document.getElementById(`desc-${id}`);
 
         if (box) {
             box.style.display =
-                box.style.display === "block" ? "none" : "block";
+                box.style.display === "block"
+                    ? "none"
+                    : "block";
         }
     };
 
-    // Feladat készre jelölése
+    // FELADAT KÉSZRE JELÖLÉSE
     window.toggleDone = (id, dayIdx) => {
-        if (!savedData[id]) savedData[id] = {};
+
+        if (!savedData[id]) {
+            savedData[id] = {};
+        }
 
         savedData[id].done = !savedData[id].done;
 
@@ -196,21 +221,31 @@ document.addEventListener("DOMContentLoaded", () => {
         renderDay(dayIdx);
     };
 
-    // Előző nap
+    // ELŐZŐ NAP
     if (prevBtn) {
+
         prevBtn.addEventListener("click", () => {
-            currentDayIndex = (currentDayIndex - 1 + 7) % 7;
+
+            currentDayIndex =
+                (currentDayIndex - 1 + 7) % 7;
+
             renderDay(currentDayIndex);
         });
     }
 
-    // Következő nap
+    // KÖVETKEZŐ NAP
     if (nextBtn) {
+
         nextBtn.addEventListener("click", () => {
-            currentDayIndex = (currentDayIndex + 1) % 7;
+
+            currentDayIndex =
+                (currentDayIndex + 1) % 7;
+
             renderDay(currentDayIndex);
         });
     }
 
+    // KEZDŐNAP MEGJELENÍTÉSE
     renderDay(currentDayIndex);
+
 });
